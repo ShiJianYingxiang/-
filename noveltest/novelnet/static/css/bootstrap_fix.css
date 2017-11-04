@@ -1,0 +1,7 @@
+#headerbox .nav li a {
+    padding:0px;
+}
+
+#headerbox .nav li a:hover {
+    background: none;
+}
