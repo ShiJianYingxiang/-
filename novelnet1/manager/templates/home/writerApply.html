@@ -1,0 +1,20 @@
+{% extends './homeHead.html' %}
+<style>
+</style>
+{% block main %}
+    <form method="post" action="./writerApply" enctype="multipart/form-data">
+    <br>
+    <input type="text" name="realname" placeholder="真实姓名" class=" rowspace form-control " style="margin-bottom: 3px">
+    <input type="text" name="idnumber" placeholder="身份证号" class="form-control" style="margin-bottom: 3px">
+    <input type="number" name="telnumber" placeholder="电话号码" class="form-control" style="margin-bottom: 3px">
+    <input type="email" name="qq" placeholder="QQ号" class="form-control" style="margin-bottom: 3px">
+    <input type="text" name="biming" placeholder="笔名" class="form-control" style="margin-bottom: 3px">
+    <h4>上传身份证照片</h4><input type="file" name="idimage" id="uploading_id" onchange="xmTanUploadImg(this)" accept="image/*">
+    <img id="xmTanImg" width="300px" height="300px"/>
+    <h4>个人手持身份证照片</h4><input type="file" name="idperson"  id="uploading_id_person" onchange="xmTanUploadImg(this)" accept="image/*">
+    <img id="xmTanImg1" width="300px" height="300px"/><br>
+    <textarea rows="5" cols="10" placeholder="申请说明" class="form-control" name="appexplain"></textarea>
+    {% csrf_token %}
+    <input type="submit" value="提交申请">
+</form>
+{% endblock %}

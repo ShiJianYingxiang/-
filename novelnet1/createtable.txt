@@ -1,0 +1,39 @@
+create table users(
+	id bigint not null auto_increment primary key,
+	email varchar(60) not null,
+	pwd varchar(60) not null,
+	nicheng varchar(60) not null,
+	updtime timestamp not null,
+	role tinyint not null default 1,    /*0.管理员1.读者,2审核中的作家,3审核通过的作家*/
+	msgnum int not null default 0,
+	createtime timestamp not null,
+	unique key emailuniq (email),
+	unique key nichenguniq (nicheng)
+)ENGINE=innodb DEFAULT CHARSET=utf8;
+insert into users set email='admin',pwd='123',nicheng='管理员',role=0,createtime=now();
+
+create table writers(
+	id bigint not null primary key, /*同users之id*/
+	realname varchar(60) not null,
+	idnumber varchar(60) not null,  /*身份证号*/
+	telnumber int not null,
+	qq varchar(60),                 /*QQ号*/
+	biming varchar(60) not null,    /*笔名*/
+	idimage varchar(60) NOT NULL,      /*身份证照片*/
+	idperson varchar(60) NOT NULL,     /*手持身份证照片*/
+	appexplain varchar(255) not null,   /*申请说明*/
+ 	updtime timestamp not null,
+	createtime timestamp not null,
+	unique key iduniq(idnumber),
+	unique key teluniq(telnumber),
+	unique key biminguniq(biming)
+)ENGINE=innodb DEFAULT CHARSET=utf8;
+
+create table msgs(
+    id
+    sendid
+    acceptid
+    content
+    createtime
+    readflag
+)ENGINE=innodb DEFAULT CHARSET=utf8;

@@ -1,0 +1,42 @@
+<script>
+    function applyPass(){
+        if(confirm('确定通过？')){
+            location.href='applyPass?id={{ id }}';
+        }
+    }
+    function applyFail(){
+        alert('驳回');
+    }
+</script>
+<table class="table table-bordered">
+        <tr>
+            <td align="right">姓名:</td>
+            <td align="left">{{ rs.realname }}</td>
+        </tr>
+        <tr>
+            <td align="right">电话:</td>
+            <td align="left">{{ rs.telnumber }}</td>
+        </tr>
+        <tr>
+            <td align="right">身份证号:</td>
+            <td align="left">{{ rs.idnumber }}</td>
+        </tr>
+        <tr>
+            <td align="right">身份证照片:</td>
+            <td align="left">
+                <img src="showImg?imgurl={{ rs.idimage }}" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">手持身份证照片:</td>
+            <td align="left">
+                <img src="showImg?imgurl={{ rs.idperson }}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="审核通过" class="btn btn-primary" onclick="applyPass()"/>&nbsp;
+                <input type="button" value="审核驳回" class="btn btn-primary" onclick="applyFail()"/>
+            </td>
+        </tr>
+</table>
